@@ -1,5 +1,5 @@
 import os
-import lib.scanner as scanner
+import sqlmc.lib.scanner as scanner
 import tabulate
 import argparse as ap
 import pyfiglet

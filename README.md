@@ -14,18 +14,14 @@ SQLMC (SQL Injection Massive Checker) is a tool designed to scan a domain for SQ
 - Reports vulnerabilities along with server information and depth
 
 ## Installation
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/malvads/sqlmc.git
-   ```
-2. Install the required dependencies:
+1. Install the required dependencies:
     ```bash
-    pip3 install -r requirements.txt
+    pip3 install sqlmc
     ```
 
 ## Usage
 
-Run the script `sqlmc.py` with the following command-line arguments:
+Run `sqlmc` with the following command-line arguments:
 
 - `-u, --url`: The URL to scan (required)
 - `-d, --depth`: The depth to scan (required)
@@ -34,12 +30,16 @@ Run the script `sqlmc.py` with the following command-line arguments:
 Example usage:
 
 ```bash
-python3 ./sqlmc.py -u http://example.com -d 2
+sqlmc -u http://example.com -d 2
 ```
 
 Replace http://example.com with the URL you want to scan and 3 with the desired depth of the scan. You can also specify an output file using the -o or --output flag followed by the desired filename.
 
 The tool will then perform the scan and display the results.
+
+## ToDo
+- Check for multiple GET params
+- Better injection checker trigger methods
 
 ## Credits
 
