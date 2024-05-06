@@ -34,7 +34,7 @@ Run the script `sqlmc.py` with the following command-line arguments:
 Example usage:
 
 ```bash
-python ./sqlmc.py -u http://example.com -d 2
+python3 ./sqlmc.py -u http://example.com -d 2
 ```
 
 Replace http://example.com with the URL you want to scan and 3 with the desired depth of the scan. You can also specify an output file using the -o or --output flag followed by the desired filename.
