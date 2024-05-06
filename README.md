@@ -41,6 +41,10 @@ Replace http://example.com with the URL you want to scan and 3 with the desired 
 
 The tool will then perform the scan and display the results.
 
+## ToDo
+- Check for multiple GET params
+- Better injection checker trigger methods
+
 ## Credits
 
 - Developed by [Miguel Álvarez](https://github.com/malvads)
