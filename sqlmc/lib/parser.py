@@ -9,6 +9,9 @@
 # Author: thegexi@gmail.com                                       #
 ###################################################################
 
+from lib.structs.sql import FormSumbit
+import re
+
 class Parser:
     @staticmethod
     def inject_all_get_params(url):
@@ -30,11 +33,35 @@ class Parser:
             return []
     
     @staticmethod
-    def inject_all_post_params(url, data):
-        urls = []
-        for key, value in data.items():
-            modified_value = f"{value}%27"
-            modified_data = {k: v for k, v in data.items()}
-            modified_data[key] = modified_value
-            urls.append((url, modified_data))
-        return urls
+    def inject_all_post_params(form):
+        try:
+            urls = []
+            url = form.url
+            inputs = form.inputs
+            for input in inputs:
+                data = {}
+                for i in inputs:
+                    if i == input:
+                        data[i] = "%27"
+                    else:
+                        data[i] = ""
+                form_data = "&".join([f"{k}={v}" for k, v in data.items()])
+                new_form = FormSumbit(url=url, data=form_data)
+                urls.append(new_form)
+            return urls
+        except ValueError:
+            return []
+    
+    @staticmethod
+    def get_inputs(html):
+        inputs = []
+        for line in html.split('\n'):
+            if 'input' in line:
+                inputs.append(line)
+        return inputs
+    
+    @staticmethod
+    def get_affected_param(url):
+        regex = r'[?&]([^=]+)=([^&%]+)%27'
+        match = re.search(regex, url)
+        return match.group(1)

@@ -10,6 +10,7 @@
 ###################################################################
 
 from html.parser import HTMLParser
+from lib.structs.sql import Form
 
 class Scanner(HTMLParser):
     def __init__(self, url):
@@ -17,6 +18,7 @@ class Scanner(HTMLParser):
         self.links = []
         self.forms = []
         self.url = url
+        self.current_form = None
 
     def handle_starttag(self, tag, attrs):
         if tag == 'a':
@@ -27,12 +29,25 @@ class Scanner(HTMLParser):
                         href = self.url + href
                     if href not in self.links:
                         self.links.append(href)
-
-        elif tag == 'form':
+        if tag == 'form':
+            action = None
             for name, value in attrs:
                 if name == 'action':
-                    self.forms.append(value)
+                    action = value
+                    if not action.startswith(('http', '/')):
+                        action = self.url + action
+                    break 
 
+            if action:
+                self.current_form = Form(url=action, inputs=[])
+                if action not in self.forms:
+                    self.forms.append(self.current_form)
+
+        elif tag == 'input' and self.current_form:
+            input_attrs = dict(attrs)
+            if 'name' in input_attrs:
+                self.current_form.inputs.append(input_attrs['name'])
+        
     def get_links(self):
         return self.links
 

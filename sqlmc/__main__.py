@@ -10,8 +10,10 @@
 ###################################################################
 
 from src.sqlmc import SQLMC
+from src.banner import banner
 
 if __name__ == "__main__":
+    banner()
     sqlmc = SQLMC()
     sqlmc.scan()
 

@@ -1,3 +1,4 @@
+
 ###################################################################
 # This file is licensed under the Affero General Public License   #
 #                  Version 3 (AGPLv3)                             #
@@ -9,19 +10,18 @@
 # Author: thegexi@gmail.com                                       #
 ###################################################################
 
-from dataclasses import dataclass
 
-@dataclass
-class SqlInjectionReport:
-    error: bool
-    db: str
-
-@dataclass
-class Form:
-    url: str
-    inputs: list
-
-@dataclass
-class FormSumbit:
-    url: str
-    data: str
+def banner():
+    print(r"""
+ _______ _______ ___                  
+|   _   |   _   |   |  .--------.----.
+|   1___|.  |   |.  |  |        |  __|
+|____   |.  |   |.  |__|__|__|__|____|
+|:  1   |:  1   |:  1   |             
+|::.. . |::..   |::.. . |             
+`-------`----|:.`-------'             
+             `--'                     
+    """)
+    print("SQL Injection Massive Checker")
+    print("Author: Miguel Álvarez")
+    print("License: AGPL-3.0")
