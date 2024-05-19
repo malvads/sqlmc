@@ -62,6 +62,8 @@ class Scanner(Checker):
                 await asyncio.gather(*tasks)
         except aiohttp.ClientError:
             pass
+        except UnicodeDecodeError:
+            pass
 
     async def scan_single_link(self, href, depth):
         vulnerable, db = await self.test_for_sql_injection(href)
