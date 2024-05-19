@@ -38,7 +38,7 @@ Replace http://example.com with the URL you want to scan and 3 with the desired 
 The tool will then perform the scan and display the results.
 
 ## ToDo
-~~- Check for multiple GET params~~ - Done in #3
+~~- Check for multiple GET params~~ - Done in [#3](https://github.com/malvads/sqlmc/pull/3)
 - Better injection checker trigger methods
 
 ## Credits
