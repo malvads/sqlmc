@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='sqlmc',
-    version='1.0.0',
+    version='1.1.0',
     packages=find_packages(),
     package_data={'': ['VERSION']},
     include_package_data=True,
