@@ -3,6 +3,7 @@ import asyncio
 import logging
 from datetime import datetime
 from sqlmc.lib.error import Checker
+from sqlmc.lib.injector import Injector
 from bs4 import BeautifulSoup
 
 logging.basicConfig(level=logging.INFO)
@@ -29,6 +30,7 @@ class Scanner(Checker):
                 return response.headers.get('Server', 'Unknown')
 
     async def test_for_sql_injection(self, url):
+        url = Injector.inject(url)
         async with aiohttp.ClientSession() as session:
             async with session.get(url + "'") as response:
                 return self.check(await response.text())
@@ -59,6 +61,8 @@ class Scanner(Checker):
             if tasks:
                 await asyncio.gather(*tasks)
         except aiohttp.ClientError:
+            pass
+        except UnicodeDecodeError:
             pass
 
     async def scan_single_link(self, href, depth):
