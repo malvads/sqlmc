@@ -3,6 +3,8 @@
 ## Demo
 ![Alt Text](./assets/demo.gif)
 
+## Information
+This tool is for educational purpose only, usage of SQLMC for attacking targets without prior mutual consent is illegal. Developers assume no liability and are not responsible for any misuse or damage cause by this program.
 
 ## Overview
 SQLMC (SQL Injection Massive Checker) is a tool designed to scan a domain for SQL injection vulnerabilities. It crawls the given URL up to a specified depth, checks each link for SQL injection vulnerabilities, and reports its findings.
