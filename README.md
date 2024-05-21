@@ -42,6 +42,7 @@ The tool will then perform the scan and display the results.
 ## ToDo
 ~~- Check for multiple GET params~~ - Done in [#3](https://github.com/malvads/sqlmc/pull/3)
 - Better injection checker trigger methods
+- Allow to use cookies like sessions to auth requests
 
 ## Credits
 
