@@ -12,7 +12,7 @@ SQLMC (SQL Injection Massive Checker) is a tool designed to scan a domain for SQ
 ## Features
 - Scans a domain for SQL injection vulnerabilities
 - Crawls the given URL up to a specified depth
-- Checks each link for SQL injection vulnerabilities
+- Checks each link for SQL injection vulnerabilities in all GET params
 - Reports vulnerabilities along with server information and depth
 
 ## Installation
