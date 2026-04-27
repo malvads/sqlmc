@@ -7,5 +7,5 @@ idna>=3.6
 multidict>=6.0.4
 pyfiglet>=1.0.2
 soupsieve>=2.5
-tabulate>=0.8.10
+tabulate>=0.10.0
 yarl>=1.9.4
